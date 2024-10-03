@@ -21,10 +21,6 @@ const styles = {
     } as React.CSSProperties,
 };
 
-const drumPadsGridStyle = {
-
-}
-
 function DrumPads() {
     return (
         <div style={styles.wrapper}>
