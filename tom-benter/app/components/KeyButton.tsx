@@ -4,9 +4,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Define the prop types for Container
-const Container = styled.div<{ columnStart: number; rowStart: number }>`
-  grid-column-start: ${(props) => props.columnStart};
-  grid-row-start: ${(props) => props.rowStart};
+const Container = styled.div<{ $columnStart: number; $rowStart: number }>`
+  grid-column-start: ${(props) => props.$columnStart};
+  grid-row-start: ${(props) => props.$rowStart};
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -61,24 +61,24 @@ const styles = {
 
 // Destructure and pass gridColumnStart and gridRowStart props
 function KeyButton({
-  columnStart,
-  rowStart,
+  $columnStart,
+  $rowStart,
   title,
   label,
 }: {
-  columnStart: number;
-  rowStart: number;
+  $columnStart: number;
+  $rowStart: number;
   title: string;
   label: string;
 }) {
   return (
-    <Container columnStart={columnStart} rowStart={rowStart}>
+    <Container $columnStart={$columnStart} $rowStart={$rowStart}>
       <div>{title}</div>
       <span style={styles.feedbackLight}></span>
       <ButtonRecess>
         <Button />
       </ButtonRecess>
-      {label != "" && <div>{label}</div>}
+      {label !== "" && <div>{label}</div>}
     </Container>
   );
 }
