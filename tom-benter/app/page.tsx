@@ -1,95 +1,58 @@
-import Image from "next/image";
+import Branding from "./components/Branding";
+import DrumPadControls from "./components/DrumPadControls";
+import DrumPads from "./components/DrumPads";
 import styles from "./page.module.css";
+
+const componentStyle = {
+  console: {
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
+    color: "black",
+    border: "2px solid black",
+    height: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(12, 1fr)",
+    paddingBottom: "3rem",
+    paddingRight: "1rem",
+    paddingLeft: "2.5rem",
+
+  },
+
+  leftSide: {
+    display: "grid",
+    gridColumnStart: "1",
+    gridColumnEnd: "7",
+    backgroundColor: "green",
+    gridTemplateRows: "320px 144px 1fr"
+  },
+
+  rightSide: {
+    gridColumnStart: "7",
+    gridColumnEnd: "13",
+    display: "grid",
+    gridTemplateRows: ".25fr .5fr 1fr",
+    paddingTop: "2rem",
+    paddingLeft: "3rem",
+    gap: "1rem"
+  },
+
+}
+
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <div style={componentStyle.console}>
+        <div style={componentStyle.leftSide}>
+          <div className="lcdScreen">LCD</div>
+          <div className="functionKeys">Function keys</div>
+          <div className="everythingElse">Everything else</div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div style={componentStyle.rightSide}>
+          <Branding />
+          <DrumPadControls />
+          <DrumPads />
+        </div>
+      </div>
     </div>
   );
 }
