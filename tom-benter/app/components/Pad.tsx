@@ -1,26 +1,34 @@
-import React from 'react'
+"use client";
 
-const styles = {
-    padRecess: {
-        border: "4px solid black",
-        borderRadius: "6px",
+import React from "react";
+import styled from "styled-components";
 
-    } as React.CSSProperties,
-    pad: {
-        display: "flex",
-        height: "100%",
-        backgroundColor: "grey",
-        borderTop: "2px solid white",
-        borderLeft: "2px solid white",
-        borderRadius: "2px",
+const Button = styled.div`
+    display: flex;
+    height: 100%; 
+    background-color: #aeaeae;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 2px;
 
-    } as React.CSSProperties,
-}
+    &:active {
+    background-color: #a0a0a0;
+    border-top: 1px solid #777;
+    border-left: 1px solid #777;
+  }
+`
+
+const ButtonRecess = styled.div`
+    border: 4px solid black;
+    border-radius: 6px;
+`
 
 function Pad() {
-    return (
-        <div style={styles.padRecess}><div style={styles.pad}></div></div>
-    )
+  return (
+    <ButtonRecess>
+      <Button/>
+    </ButtonRecess>
+  );
 }
 
-export default Pad
+export default Pad;
