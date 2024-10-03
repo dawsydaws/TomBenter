@@ -22,30 +22,31 @@ const Button = styled.div`
 `;
 
 const ButtonRecess = styled.div`
+  width: 100%;
   border: 4px solid black;
   border-radius: 6px;
   display: inline-block;
 `;
 
-function Pad() {
-  // Define loadTone function to dynamically import Tone.js and trigger sound
-  const loadTone = async () => {
+function Pad({ sample }: { sample: string }) {
+  // Define loadTone function to dynamically import Tone.js and play the sample
+  const loadTone = async (sampleUrl: string) => {
     if (typeof window !== "undefined") {
       try {
         const Tone = await import("tone"); // Import Tone.js dynamically
 
         // Ensure AudioContext is resumed in browsers
         if (Tone.getContext().state !== "running") {
-          console.log("Audio context state:", Tone.getContext().state);
           await Tone.start();
         }
 
-        const synth = new Tone.Synth().toDestination();
+        // Create a Tone.Player to play the audio sample
+        const player = new Tone.Player(sampleUrl).toDestination();
 
-        // Ensure Tone.js is loaded before triggering any sound
+        // Ensure the sample is loaded before playing
         await Tone.loaded();
-        synth.triggerAttackRelease("C4", "8n");
-        console.log("Tone played!");
+        player.start(); // Play the sample
+        console.log(`Sample ${sampleUrl} played!`);
       } catch (error) {
         console.error("Error loading Tone.js", error);
       }
@@ -54,7 +55,7 @@ function Pad() {
 
   return (
     <ButtonRecess>
-      <Button onClick={loadTone}></Button>
+      <Button onClick={() => loadTone(sample)}/>
     </ButtonRecess>
   );
 }
