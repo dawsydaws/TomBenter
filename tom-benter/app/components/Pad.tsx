@@ -35,7 +35,8 @@ function Pad() {
         const Tone = await import("tone"); // Import Tone.js dynamically
 
         // Ensure AudioContext is resumed in browsers
-        if (Tone.getContext().state !== 'running') {
+        if (Tone.getContext().state !== "running") {
+          console.log("Audio context state:", Tone.getContext().state);
           await Tone.start();
         }
 
