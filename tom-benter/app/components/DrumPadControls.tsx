@@ -45,26 +45,26 @@ function DrumPadControls() {
         <div style={styles.upperWhiteBackground}></div>
         <div style={styles.lowerWhiteBackground}></div>
         <KeyButton
-          gridColumnStart={1}
-          gridRowStart={1}
+          columnStart={1}
+          rowStart={1}
           title="FULL LEVEL"
           label="A/a"
         />
         <KeyButton
-          gridColumnStart={2}
-          gridRowStart={1}
+          columnStart={2}
+          rowStart={1}
           title="16 LEVELS"
           label="SPACE"
         />
         <KeyButton
-          gridColumnStart={1}
-          gridRowStart={2}
+          columnStart={1}
+          rowStart={2}
           title="NEXT SEQ"
           label=""
         />
         <KeyButton
-          gridColumnStart={2}
-          gridRowStart={2}
+          columnStart={2}
+          rowStart={2}
           title="TRACK MUTE"
           label=""
         />

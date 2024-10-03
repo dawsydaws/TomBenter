@@ -4,9 +4,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Define the prop types for Container
-const Container = styled.div<{ gridColumnStart: number; gridRowStart: number }>`
-  grid-column-start: ${(props) => props.gridColumnStart};
-  grid-row-start: ${(props) => props.gridRowStart};
+const Container = styled.div<{ columnStart: number; rowStart: number }>`
+  grid-column-start: ${(props) => props.columnStart};
+  grid-row-start: ${(props) => props.rowStart};
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,30 @@ const Container = styled.div<{ gridColumnStart: number; gridRowStart: number }>`
   width: 100%;
   white-space: nowrap;
   font-size: 0.8rem;
+`;
+
+const Button = styled.div`
+  height: 2rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  background-color: #aeaeae;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+
+  &:active {
+    background-color: #a0a0a0;
+    border-top: 1px solid #777;
+    border-left: 1px solid #777;
+  }
+`;
+
+const ButtonRecess = styled.div`
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 0.4rem;
 `;
 
 const styles = {
@@ -37,21 +61,23 @@ const styles = {
 
 // Destructure and pass gridColumnStart and gridRowStart props
 function KeyButton({
-  gridColumnStart,
-  gridRowStart,
+  columnStart,
+  rowStart,
   title,
   label,
 }: {
-  gridColumnStart: number;
-  gridRowStart: number;
+  columnStart: number;
+  rowStart: number;
   title: string;
   label: string;
 }) {
   return (
-    <Container gridColumnStart={gridColumnStart} gridRowStart={gridRowStart}>
+    <Container columnStart={columnStart} rowStart={rowStart}>
       <div>{title}</div>
       <span style={styles.feedbackLight}></span>
-      <div style={styles.buttonPad}></div>
+      <ButtonRecess>
+        <Button />
+      </ButtonRecess>
       {label != "" && <div>{label}</div>}
     </Container>
   );
