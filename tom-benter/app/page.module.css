@@ -6,7 +6,7 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  padding: 64px;
+  padding: 1rem;
   height: 100vh;
   font-family: var(--font-geist-sans);
 }
