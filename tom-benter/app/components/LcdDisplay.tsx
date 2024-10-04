@@ -5,7 +5,7 @@ import styled from "styled-components";
 import LcdScreen from "./LcdScreen";
 
 const StyledWrapper = styled.div`
-  padding-left: 4rem;
+  padding-left: 5vw;
   padding-top: 2rem;
   height: 280px; //remove later
 `;
@@ -33,6 +33,7 @@ const ScreenRecess = styled.div`
     letter-spacing: 0.05rem;
     text-align: center;
     padding: .25rem 0;
+    white-space: nowrap;
   }
 `;
 
