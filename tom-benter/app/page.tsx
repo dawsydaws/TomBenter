@@ -5,19 +5,23 @@ import DrumPadControls from "./components/DrumPadControls";
 import DrumPads from "./components/DrumPads";
 import FunctionKeys from "./components/FunctionKeys";
 import LcdDisplay from "./components/LcdDisplay";
-import styles from "./page.module.css";
 import styled from "styled-components";
+
+const StyledWrapper = styled.div`
+  height: 100vh;
+  padding: 1rem;
+`
 
 const StyledConsole = styled.div`
   background-color: rgba(255, 255, 255, 0.85);
   color: black;
-  border: 2px solid black;
+  border: 4px solid black;
+  border-radius: 8px;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   padding-bottom: 3rem;
   padding-right: 1rem;
-  padding-left: 2.5rem;
 `;
 
 const StyledLeft = styled.div`
@@ -39,7 +43,7 @@ const StyledRight = styled.div`
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <StyledWrapper>
       <StyledConsole>
         <StyledLeft>
           <LcdDisplay/>
@@ -52,6 +56,6 @@ export default function Home() {
           <DrumPads />
         </StyledRight>
       </StyledConsole>
-    </div>
+    </StyledWrapper>
   );
 }
