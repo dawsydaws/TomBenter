@@ -1,58 +1,57 @@
+"use client";
+
 import Branding from "./components/Branding";
 import DrumPadControls from "./components/DrumPadControls";
 import DrumPads from "./components/DrumPads";
+import FunctionKeys from "./components/FunctionKeys";
+import LcdDisplay from "./components/LcdDisplay";
 import styles from "./page.module.css";
+import styled from "styled-components";
 
-const componentStyle = {
-  console: {
-    backgroundColor: "rgba(255, 255, 255, 0.85)",
-    color: "black",
-    border: "2px solid black",
-    height: "100%",
-    display: "grid",
-    gridTemplateColumns: "repeat(12, 1fr)",
-    paddingBottom: "3rem",
-    paddingRight: "1rem",
-    paddingLeft: "2.5rem",
+const StyledConsole = styled.div`
+  background-color: rgba(255, 255, 255, 0.85);
+  color: black;
+  border: 2px solid black;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding-bottom: 3rem;
+  padding-right: 1rem;
+  padding-left: 2.5rem;
+`;
 
-  },
+const StyledLeft = styled.div`
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-template-rows: auto auto 1fr;
+`;
 
-  leftSide: {
-    display: "grid",
-    gridColumnStart: "1",
-    gridColumnEnd: "7",
-    backgroundColor: "green",
-    gridTemplateRows: "320px 144px 1fr"
-  },
-
-  rightSide: {
-    gridColumnStart: "7",
-    gridColumnEnd: "13",
-    display: "grid",
-    gridTemplateRows: ".25fr .5fr 1fr",
-    paddingTop: "2rem",
-    paddingLeft: "3rem",
-    gap: "1rem"
-  },
-
-}
-
+const StyledRight = styled.div`
+  display: grid;
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-template-rows: auto auto 1fr;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  gap: 1rem;
+`;
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div style={componentStyle.console}>
-        <div style={componentStyle.leftSide}>
-          <div className="lcdScreen">LCD</div>
-          <div className="functionKeys">Function keys</div>
+      <StyledConsole>
+        <StyledLeft>
+          <LcdDisplay/>
+          <FunctionKeys/>
           <div className="everythingElse">Everything else</div>
-        </div>
-        <div style={componentStyle.rightSide}>
+        </StyledLeft>
+        <StyledRight>
           <Branding />
           <DrumPadControls />
           <DrumPads />
-        </div>
-      </div>
+        </StyledRight>
+      </StyledConsole>
     </div>
   );
 }
