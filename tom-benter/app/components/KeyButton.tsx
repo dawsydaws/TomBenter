@@ -44,16 +44,6 @@ const ButtonRecess = styled.div`
   border-radius: 0.4rem;
 `;
 
-const styles = {
-
-  buttonPad: {
-    height: "2rem",
-    border: "1px solid black",
-    borderRadius: "0.25rem",
-    width: "100%",
-    backgroundColor: "lightgrey",
-  },
-};
 
 // Destructure and pass gridColumnStart and gridRowStart props
 function KeyButton({
