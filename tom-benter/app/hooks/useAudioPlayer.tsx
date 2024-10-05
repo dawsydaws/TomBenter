@@ -3,7 +3,7 @@ import * as Tone from "tone";
 import { playAudioSample } from "../utils/playAudioSample";
 import { stopPlayback } from "../utils/stopPlayback";
 
-export const useAudioPlayer = (initialSongUrl: string) => {
+export const useAudioPlayer = (initialSongUrl?: string) => {
   const [player, setPlayer] = useState<Tone.Player | null>(null);
 
   const play = async (songUrl: string) => {

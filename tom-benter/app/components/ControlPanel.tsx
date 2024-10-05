@@ -17,7 +17,7 @@ function ControlPanel({
   songs,
   selectedSong,
 }: {
-  songs: { id: number; name: string; url: string }[];
+  songs?: { id: number; name: string; url: string }[];
   selectedSong: { id: number; name: string; url: string };
 }) {
   const { play, stop } = useAudioPlayer(selectedSong.url);
