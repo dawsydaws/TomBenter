@@ -58,7 +58,7 @@ export default function Home() {
         <StyledLeft>
           <LcdDisplay selectedSong={selectedSong} />
           <FunctionKeys songs={songs} onSongSelect={selectSong} />
-          <ControlPanel songs={songs} selectedSong={selectedSong}/>
+          <ControlPanel selectedSong={selectedSong}/>
         </StyledLeft>
         <StyledRight>
           <Branding />

@@ -14,13 +14,11 @@ const StyledContainer = styled.div`
 `;
 
 function ControlPanel({
-  songs,
   selectedSong,
 }: {
-  songs?: { id: number; name: string; url: string }[];
   selectedSong: { id: number; name: string; url: string };
 }) {
-  const { play, stop } = useAudioPlayer(selectedSong.url);
+  const { play, stop } = useAudioPlayer();
 
   return (
     <StyledWrapper>
