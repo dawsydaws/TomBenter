@@ -1,16 +1,18 @@
 "use client";
 
 import Branding from "./components/Branding";
+import ControlPanel from "./components/ControlPanel";
 import DrumPadControls from "./components/DrumPadControls";
 import DrumPads from "./components/DrumPads";
 import FunctionKeys from "./components/FunctionKeys";
 import LcdDisplay from "./components/LcdDisplay";
+import { useTrackSelector } from './hooks/useTrackSelector';
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   height: 100vh;
   padding: 1rem;
-`
+`;
 
 const StyledConsole = styled.div`
   background-color: rgba(255, 255, 255, 0.85);
@@ -41,14 +43,22 @@ const StyledRight = styled.div`
   gap: 1rem;
 `;
 
+const initialSongs = [
+  { id: 1, name: "South Boulevard (Tom Benter Remix)", url: "/audio/songs/SouthBoulevard_TomBenter_Remix_1.wav" },
+  { id: 2, name: "Song 2", url: "/audio/songs/SouthBoulevard_TomBenter_Remix_2.wav" },
+];
+
 export default function Home() {
+
+  const {songs, selectedSong, selectSong} = useTrackSelector(initialSongs);
+
   return (
     <StyledWrapper>
       <StyledConsole>
         <StyledLeft>
-          <LcdDisplay/>
-          <FunctionKeys/>
-          <div className="everythingElse">Everything else</div>
+          <LcdDisplay selectedSong={selectedSong} />
+          <FunctionKeys songs={songs} onSongSelect={selectSong} />
+          <ControlPanel songs={songs} selectedSong={selectedSong}/>
         </StyledLeft>
         <StyledRight>
           <Branding />

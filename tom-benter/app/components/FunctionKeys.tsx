@@ -32,6 +32,7 @@ const FunctionLabel = styled.div`
     font-size: 0.8rem;
   }
 `;
+
 const FunctionButtonRecess = styled.div`
   border: 2px solid black;
   border-radius: 4px;
@@ -43,59 +44,22 @@ const FunctionButton = styled.div`
   background-color: lightgray;
   text-align: center;
   height: 100%;
+  cursor: pointer;
 `;
 
-function FunctionKeys() {
+function FunctionKeys({ songs, onSongSelect }: { songs: { id: number; name: string; url: string }[], onSongSelect: (song: { id: number; name: string; url: string }) => void }) {
   return (
     <StyledContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F1</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F2</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F3</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F4</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F5</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
-      <FunctionButtonContainer>
-        <FunctionLabel>
-          <p>F6</p>
-        </FunctionLabel>
-        <FunctionButtonRecess>
-          <FunctionButton />
-        </FunctionButtonRecess>
-      </FunctionButtonContainer>
+      {songs.map((song, index) => (
+        <FunctionButtonContainer key={song.id}>
+          <FunctionLabel>
+            <p>{`F${index + 1}`}</p> {/* Label buttons dynamically */}
+          </FunctionLabel>
+          <FunctionButtonRecess>
+            <FunctionButton onClick={() => onSongSelect(song)} />
+          </FunctionButtonRecess>
+        </FunctionButtonContainer>
+      ))}
     </StyledContainer>
   );
 }

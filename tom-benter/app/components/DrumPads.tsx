@@ -24,10 +24,10 @@ const styles = {
 
 // Array of audio file paths
 const samples = [
-  "/audio/toad1.wav", "/audio/toad2.wav", "/audio/toad3.wav", "/audio/toad4.wav",
-  "/audio/toad5.wav", "/audio/toad6.wav", "/audio/toad7.wav", "/audio/toad8.wav",
-  "/audio/toad9.wav", "/audio/toad10.wav", "/audio/toad11.wav", "/audio/toad12.wav",
-  "/audio/toad13.wav", "/audio/toad14.wav", "/audio/toad15.wav", "/audio/toad16.wav",
+  "/audio/bank1/toad1.wav", "/audio/bank1/toad2.wav", "/audio/bank1/toad3.wav", "/audio/bank1/toad4.wav",
+  "/audio/bank1/toad5.wav", "/audio/bank1/toad6.wav", "/audio/bank1/toad7.wav", "/audio/bank1/toad8.wav",
+  "/audio/bank1/toad9.wav", "/audio/bank1/toad10.wav", "/audio/bank1/toad11.wav", "/audio/bank1/toad12.wav",
+  "/audio/bank1/toad13.wav", "/audio/bank1/toad14.wav", "/audio/bank1/toad15.wav", "/audio/bank1/toad16.wav",
 ];
 
 function DrumPads() {

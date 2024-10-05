@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import { playAudioSample } from "../utils/playAudioSample";
 
 const Button = styled.div`
   display: flex;
@@ -29,33 +30,14 @@ const ButtonRecess = styled.div`
 `;
 
 function Pad({ sample }: { sample: string }) {
-  // Define loadTone function to dynamically import Tone.js and play the sample
-  const loadTone = async (sampleUrl: string) => {
-    if (typeof window !== "undefined") {
-      try {
-        const Tone = await import("tone"); // Import Tone.js dynamically
-
-        // Ensure AudioContext is resumed in browsers
-        if (Tone.getContext().state !== "running") {
-          await Tone.start();
-        }
-
-        // Create a Tone.Player to play the audio sample
-        const player = new Tone.Player(sampleUrl).toDestination();
-
-        // Ensure the sample is loaded before playing
-        await Tone.loaded();
-        player.start(); // Play the sample
-        console.log(`Sample ${sampleUrl} played!`);
-      } catch (error) {
-        console.error("Error loading Tone.js", error);
-      }
-    }
-  };
+  
+  function playAudio() {
+    playAudioSample(sample);
+  }
 
   return (
     <ButtonRecess>
-      <Button onClick={() => loadTone(sample)}/>
+      <Button onClick={playAudio} />
     </ButtonRecess>
   );
 }

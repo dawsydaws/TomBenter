@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import FeedbackLight from "./FeedbackLight";
 
 // Define the prop types for Container
 const Container = styled.div<{ $columnStart: number; $rowStart: number }>`
@@ -44,12 +45,7 @@ const ButtonRecess = styled.div`
 `;
 
 const styles = {
-  feedbackLight: {
-    height: "0.5rem",
-    width: "0.5rem",
-    backgroundColor: "black",
-    borderRadius: "50%",
-  },
+
   buttonPad: {
     height: "2rem",
     border: "1px solid black",
@@ -74,7 +70,7 @@ function KeyButton({
   return (
     <Container $columnStart={$columnStart} $rowStart={$rowStart}>
       <div>{title}</div>
-      <span style={styles.feedbackLight}></span>
+      <FeedbackLight/>
       <ButtonRecess>
         <Button />
       </ButtonRecess>
